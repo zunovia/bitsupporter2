@@ -1,0 +1,21 @@
+<table class='table'>
+  <thead>
+    <tr>
+      <th>会員画像</th>
+      <th>名前</th>
+      <th>フォロー</th>
+      <th colspan="2"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% end_users.each do |end_user| %>
+      <tr>
+        <td><%= image_tag end_user.get_profile_image(50,50) %></td>
+        <td><%= end_user.name %></td>
+        <td><%= render "public/relationships/btn", end_user: end_user %></td>
+        <td><%= link_to '会員詳細', end_user_path(end_user.id), class: "end_user_#{end_user.id}" %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<br><br><br><br>
