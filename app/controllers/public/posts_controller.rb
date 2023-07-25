@@ -20,7 +20,7 @@ class Public::PostsController < ApplicationController
 
   def create
     @post = Post.new(post_params)
-    #@post.score = Language.get_data(post_params[:body])
+    @post.score = Language.get_data(post_params[:body])
     @post.end_user_id = current_end_user.id
     @guestusername = current_end_user.name
     if @post.save
